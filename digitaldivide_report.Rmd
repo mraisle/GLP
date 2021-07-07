@@ -1,0 +1,209 @@
+---
+title: "The Digital Divide"
+output: 
+  html_document:
+    self_contained: no
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+<style type="text/css">
+  body{
+  font-family: Verdana;
+  }
+</style>
+
+<style type="text/css">
+.title {
+  font-family: Verdana;
+  font-size: 3em;
+  float:center;
+  padding-top: 0px;
+  padding-left: 180px;
+  padding bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+</style>
+
+
+```{r setup, message = FALSE, warning = FALSE}
+# Knitr options
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, dev.args=list(bg="transparent"))
+library(glptools)
+glp_load_packages(graphs=T)
+library(glpdata)
+library(leaflet)
+library(htmlwidgets)
+library(tidyverse)
+library(magrittr)
+library(showtext)
+library(here)
+library(viridis)
+
+library(showtext)
+showtext_auto()
+```
+
+The term "digital divide" identifies the gap between people that have digital access (both internet access and a device to use it) and those who do not.
+
+Throughout this report, we focus on digital access at the household level—access to high-speed internet connection and a computer or tablet—when data is available. Even if a household has a computer or tablet, there may not be enough devices for multiple people working and learning from home because the number of devices is not included in the data. We also include metrics on high-speed internet and computer access and high-speed internet access alone. We use the word "broadband" interchangeably with "high-speed" internet. While internet access over a smartphone or other non-high speed source can be useful for staying connected, in the COVID era of working and learning from home, high speed internet is a necessary utility that a third of our households do not have, and  has not improved over the past six years. Almost 15% of people rely on their smartphones for digital access, and 6%—more than 1 in 20 residents—do not have a computer, tablet, smartphone, or internet access. 
+
+This report uses census Microdata from IPUMS as well as tables from the 5-year and 1-year American Community Survey to look at digital access in Jefferson County from 2013 to 2019. Additional information about the data in this report can be found in the "About the Data" section.
+
+Interested in seeing how fast your internet is and contributing to an internet speed dataset?<p><span style="color:#3c80b4"><a href="https://educationcabinet.ky.gov/Initiatives/Pages/KBI.aspx" target="_blank">Click here to take an internet speed test as part of the Kentucky Broadband Initiative.</a></span></p>
+
+# How does Louisville Compare? {.tabset}
+
+Louisville currently ranks 13th among its peer cities in access to a device—a computer or a tablet—and high-speed internet. 65.7% of households in Jefferson County have access to both of these. *1 in 3 households do not have full digital access.* 
+
+## Peer Ranking 
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_ranking.png" style="float: center; width: 100%" ></a>
+
+## Comparison to Peers Over Time
+
+Louisville's digital access, as of 2019, was less than the average of its peer cities. Since 2017, the percent of households with access to high-speed internet and a device has decreased. 
+
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_break_trendline.png" style="float: center; width: 100%" ></a>
+*Starting in 2016, ‘device’ is defined as having a computer or tablet. Pre-2016 the data did not ask about tablets, only computers. This is the reason for the ~4.5% bump in the data from 2015-16.*
+
+## Improvement from Peers 
+
+From 2013-2019, Louisville did not improve in terms of the percent of households with high-speed internet and device access. It was the only city to see no overall net improvement. Cincinnati, the most improved peer city, saw an increase in digital access of 10.6% over this same time period. 
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_max_min.png" style="float: center; width: 100%" ></a>
+
+
+
+# Types of Access
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/digitaldivide_small.png" style="float: right; width: 60%; margin-left: 5%" ></a>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+In Jefferson County, 3 out of 4 households have a tablet or computer as well as an internet subscription (this includes slower internet, like dial-up). Almost 15% of households rely on their smartphone for digital access, and almost 8% of households have limited to no digital access.
+
+The graphic below shows this data in more detail, encompassing all of the types of access a household may have. 
+
+<br />
+<br />
+<br />
+<br />
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/digitaldivide_full.png" style="float: right; width: 100%; margin-top: 2em; margin-bottom: 2em" ></a>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+# High-Speed Internet and Device Access by Race
+
+The disparity in access between white and Black households in Jefferson County has stayed relatively consistent over the last six years, with about 20% more white households having high-speed internet and device access than Black households. 
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_race.png" style="float: center; width: 100%" ></a>
+
+*Here, we only include data on white and Black households because the other available racial demographics from the census (Hispanic and other) have a very large range and margin of error. Understanding digital access differences in these and other racial groups is critical to reducing the digital divide in Louisville, we simply do not have the data as of the publishing of this figure.*
+
+
+# High-Speed Internet Access by Income
+
+This figure shows high-speed internet access by income for households in Jefferson County. While it persists, the gap between income classes is shrinking. 
+
+<a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_byincome.png" style="float: center; width: 100%" ></a>
+
+*Here, we only include data by income for high-speed internet access because additional data on device access is not available.*
+
+
+# High-Speed Internet and Computer Access by Geography
+
+This map shows the percentage of residents with a broadband internet subscription and a computer for Metro United Way neighborhoods, Census Tracts, and Greater Louisville Project neighborhoods in Jefferson County. While regions in East Louisville consistently have access levels above 80%, neighborhoods in West Louisville have consistently less access, with some census tracts having half of the access the eastern tracts do. 
+
+```{r digitalmap}
+#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_nodisagg_muw, digitalaccess_nodisagg_tract,
+                         #      digitalaccess_nodisagg_nh),
+                   # var = "hasaccess",
+                    #hover_name = "Computer & Broadband internet access",
+                    #legend_title = "Computer &<br>Broadband access"
+#)
+
+```
+
+
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_all_19.html" width="672" height="400"></iframe>
+
+*This data comes from ACS table B28008.*
+
+
+# High-Speed Internet and Computer Access by Age  {.tabset}
+
+The following maps shows the percentage of residents with a broadband internet subscription and a computer for Metro United Way neighborhoods, Census Tracts, and Greater Louisville Project neighborhoods in Jefferson County for children under 18 and adults age 65+.
+
+
+## Children under 18
+
+Before the pandemic, digital access for students was increasingly a requirement. Since schools have been remote for over a year, and now take a hybrid approach, digital access has become more critical for learning. Access is 17.7 percentage points higher in households that report having a child under 18 than in the total population. 
+
+```{r age map young}
+#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_by_age_muw, digitalaccess_by_age_tract, digitalaccess_by_age_nh),
+         #var = "under_18",
+         #hover_name = "Computer & Broadband internet access under 18",
+         #legend_title = "Computer & Broadband<br>access under 18"
+        # )
+
+```
+*This data comes from ACS table B28005.*
+
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_under18_19.html" width="672" height="400"></iframe>
+
+
+## Adults ages 65+
+
+The story of difference between adults age 65+ and the general population is mixed. Two out of three census tracts report lower values of access for adults age 65+ compared to the general population. The average difference is much smaller in magnitude than the comparison to children under 18. Access is 3.8 percentage points lower for adults age 65+ than in the total population.
+
+```{r age map old}
+#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_by_age_muw, digitalaccess_by_age_tract, digitalaccess_by_age_nh),
+                   # var = "65_plus",
+                    #hover_name = "Computer & Broadband internet access 65+",
+         #legend_title = "Computer & Broadband<br>access 65+"
+         #)
+
+
+```
+
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_plus65_19.html" width="672" height="400"></iframe>
+
+*This data comes from ACS table B28005.*
+
+# About the Data 
+
+| Section | Figure | Data Source(s) | Notes |
+| -------- | ---------- | --------------- | -------------------- |
+| How does Louisville Compare? | Peer Ranking | ACS Microdata IPUMS-USA | Household level data that excludes group quarters. 1-year (2019) ACS estimates. Details households that have a high-speed internet subscription *and* access to a computer or tablet in the household (does not specify number of devices in household.) |
+| How does Louisville Compare? | Comparison to Peers Over Time | ACS Microdata IPUMS-USA | All the information detailed in "Peer Ranking" (above) applies. Additionally, it is important to note that, before 2016, the ACS questionnaire did not ask about tablets, only computers. Therefore, data before 2016 is only showing access to high-speed internet and a computer. Starting in 2016, ‘device’ is defined as having a computer or tablet. Pre-2016 the data did not ask about tablets, only computers. This is the reason for the ~4.5% bump in the data from 2015-16.|
+| How does Louisville Compare? | Improvement from Peers | ACS Microdata IPUMS-USA | All the information detailed in "Comparison to Peers Over Time" (above) applies. |
+| Types of Access | Figure 1 (condensed figure) | ACS Microdata IPUMS-USA | Household level data that excludes group quarters. 1-year (2019) ACS estimates. 101 computer figures appear in this figure due to rounding.In the second section (yellow) that focuses on smartphone-related access, 14.7% is rounded to 15 computer figures. |
+| Types of Access | Figure 2 (expanded figure) | ACS Microdata IPUMS-USA | Household level data that excludes group quarters. 1-year (2019) ACS estimates.101 computer figures appear in this figure due to rounding. In the second section (yellow) that focuses on smartphone-related access, 10.9% is rounded to 11 computer figures, which, in turn, causes 14.7% to be rounded to 15 computer figures. |
+| High-Speed Internet and Device Access by Race | Figure 1 | ACS Microdata IPUMS-USA | Household level data that excludes group quarters. 1-year (2019) ACS estimates. Only data on white and Black households is presented because the other available racial demographics from the census (Hispanic and other) have a very large range and margin of error. Understanding digital access differences in these and other racial groups is critical to reducing the digital divide in Louisville, we simply do not have the data as of the publishing of this figure. |
+| High-Speed Internet Access by Income | Figure 1 | ACS Table B28004 | Household level data that excludes group  quarters. 1-year (2019) ACS estimates. Data by income for high-speed internet access only is included here because additional data on device access is not available. |
+| High-Speed Internet and Computer Access by Geography | Map 1 | ACS Table B28008 | Data describes population in households (individuals) with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019). |
+| High-Speed Internet and Computer Access by Age | Children under 18 | ACS Table B28005 | Data describes children under 18 in households with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019). |
+| High-Speed Internet and Computer Access by Age | Adults ages 65+ | ACS Table B28005 |Data describes adults 65 or older in households with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019). |
+
+
+
