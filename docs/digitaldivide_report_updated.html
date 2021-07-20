@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>The Digital Divide</title>
+
+<script src="digitaldivide_report_updated_files/header-attrs-2.8/header-attrs.js"></script>
+<script src="digitaldivide_report_updated_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="digitaldivide_report_updated_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="digitaldivide_report_updated_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="digitaldivide_report_updated_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="digitaldivide_report_updated_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="digitaldivide_report_updated_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="digitaldivide_report_updated_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="digitaldivide_report_updated_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="digitaldivide_report_updated_files/navigation-1.1/tabsets.js"></script>
+<script src="digitaldivide_report_updated_files/navigation-1.1/codefolding.js"></script>
+<link href="digitaldivide_report_updated_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="digitaldivide_report_updated_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">The Digital Divide</h1>
+
+</div>
+
+
+<style type="text/css">
+  body{
+  font-family: Verdana;
+  }
+</style>
+<style type="text/css">
+.title {
+  font-family: Verdana;
+  font-size: 3em;
+  float:center;
+  padding-top: 0px;
+  padding-left: 180px;
+  padding bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+</style>
+<p>The term “digital divide” identifies the gap between people that have digital access (both internet access and a device to use it) and those who do not.</p>
+<p>Throughout this report, we focus on digital access at the household level—access to high-speed internet connection and a computer or tablet—when data is available. Even if a household has a computer or tablet, there may not be enough devices for multiple people working and learning from home because the number of devices is not included in the data. We also include metrics on high-speed internet and computer access and high-speed internet access alone. We use the word “broadband” interchangeably with “high-speed” internet. While internet access over a smartphone or other non-high speed source can be useful for staying connected, in the COVID era of working and learning from home, high speed internet is a necessary utility that a third of our households do not have, and has not improved over the past six years. Almost 15% of people rely on their smartphones for digital access, and 6%—more than 1 in 20 residents—do not have a computer, tablet, smartphone, or internet access.</p>
+<p>This report uses census Microdata from IPUMS as well as tables from the 5-year and 1-year American Community Survey to look at digital access in Jefferson County from 2013 to 2019. Additional information about the data in this report can be found in the “About the Data” section.</p>
+Interested in seeing how fast your internet is and contributing to an internet speed dataset?
+<p>
+<span style="color:#3c80b4"><a href="https://educationcabinet.ky.gov/Initiatives/Pages/KBI.aspx" target="_blank">Click here to take an internet speed test as part of the Kentucky Broadband Initiative.</a></span>
+</p>
+<div id="how-does-louisville-compare" class="section level1 tabset">
+<h1 class="tabset">How does Louisville Compare?</h1>
+<p>Louisville currently ranks 13th among its peer cities in access to a device—a computer or a tablet—and high-speed internet. 65.7% of households in Jefferson County have access to both of these. <em>1 in 3 households do not have full digital access.</em></p>
+<div id="peer-ranking" class="section level2">
+<h2>Peer Ranking</h2>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_ranking.png" style="float: center; width: 100%" ></a></p>
+</div>
+<div id="comparison-to-peers-over-time" class="section level2">
+<h2>Comparison to Peers Over Time</h2>
+<p>Louisville’s digital access, as of 2019, was less than the average of its peer cities. Since 2017, the percent of households with access to high-speed internet and a device has decreased.</p>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_break_trendline.png" style="float: center; width: 100%" ></a> <em>Starting in 2016, ‘device’ is defined as having a computer or tablet. Pre-2016 the data did not ask about tablets, only computers. This is the reason for the ~4.5% bump in the data from 2015-16.</em></p>
+</div>
+<div id="improvement-from-peers" class="section level2">
+<h2>Improvement from Peers</h2>
+<p>From 2013-2019, Louisville did not improve in terms of the percent of households with high-speed internet and device access. It was the only city to see no overall net improvement. Cincinnati, the most improved peer city, saw an increase in digital access of 10.6% over this same time period.</p>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_max_min.png" style="float: center; width: 100%" ></a></p>
+</div>
+</div>
+<div id="types-of-access" class="section level1">
+<h1>Types of Access</h1>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/digitaldivide_small.png" style="float: right; width: 60%; margin-left: 5%" ></a></p>
+<p><br /> <br /> <br /> <br /> <br /></p>
+<p>In Jefferson County, 3 out of 4 households have a tablet or computer as well as an internet subscription (this includes slower internet, like dial-up). Almost 15% of households rely on their smartphone for digital access, and almost 8% of households have limited to no digital access.</p>
+<p>The graphic below shows this data in more detail, encompassing all of the types of access a household may have.</p>
+<p><br /> <br /> <br /> <br /></p>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/digitaldivide_full.png" style="float: right; width: 100%; margin-top: 2em; margin-bottom: 2em" ></a></p>
+<p><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /></p>
+</div>
+<div id="high-speed-internet-and-device-access-by-race" class="section level1">
+<h1>High-Speed Internet and Device Access by Race</h1>
+<p>The disparity in access between white and Black households in Jefferson County has stayed relatively consistent over the last six years, with about 20% more white households having high-speed internet and device access than Black households.</p>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_and_device_race.png" style="float: center; width: 100%" ></a></p>
+<p><em>Here, we only include data on white and Black households because the other available racial demographics from the census (Hispanic and other) have a very large range and margin of error. Understanding digital access differences in these and other racial groups is critical to reducing the digital divide in Louisville, we simply do not have the data as of the publishing of this figure.</em></p>
+</div>
+<div id="high-speed-internet-access-by-income" class="section level1">
+<h1>High-Speed Internet Access by Income</h1>
+<p>This figure shows high-speed internet access by income for households in Jefferson County. While it persists, the gap between income classes is shrinking.</p>
+<p><a ><img src="http://greaterlouisvilleproject.org/content/uploads/2021/06/internet_byincome.png" style="float: center; width: 100%" ></a></p>
+<p><em>Here, we only include data by income for high-speed internet access because additional data on device access is not available.</em></p>
+</div>
+<div id="high-speed-internet-and-computer-access-by-geography" class="section level1">
+<h1>High-Speed Internet and Computer Access by Geography</h1>
+<p>This map shows the percentage of residents with a broadband internet subscription and a computer for Metro United Way neighborhoods, Census Tracts, and Greater Louisville Project neighborhoods in Jefferson County. While regions in East Louisville consistently have access levels above 80%, neighborhoods in West Louisville have consistently less access, with some census tracts having half of the access the eastern tracts do.</p>
+<pre class="r"><code>#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_nodisagg_muw, digitalaccess_nodisagg_tract,
+                         #      digitalaccess_nodisagg_nh),
+                   # var = &quot;hasaccess&quot;,
+                    #hover_name = &quot;Computer &amp; Broadband internet access&quot;,
+                    #legend_title = &quot;Computer &amp;&lt;br&gt;Broadband access&quot;
+#)</code></pre>
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_all_19.html" width="672" height="400">
+</iframe>
+<p><em>This data comes from ACS table B28008.</em></p>
+</div>
+<div id="high-speed-internet-and-computer-access-by-age" class="section level1 tabset">
+<h1 class="tabset">High-Speed Internet and Computer Access by Age</h1>
+<p>The following maps shows the percentage of residents with a broadband internet subscription and a computer for Metro United Way neighborhoods, Census Tracts, and Greater Louisville Project neighborhoods in Jefferson County for children under 18 and adults age 65+.</p>
+<div id="children-under-18" class="section level2">
+<h2>Children under 18</h2>
+<p>Before the pandemic, digital access for students was increasingly a requirement. Since schools have been remote for over a year, and now take a hybrid approach, digital access has become more critical for learning. Access is 17.7 percentage points higher in households that report having a child under 18 than in the total population.</p>
+<pre class="r"><code>#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_by_age_muw, digitalaccess_by_age_tract, digitalaccess_by_age_nh),
+         #var = &quot;under_18&quot;,
+         #hover_name = &quot;Computer &amp; Broadband internet access under 18&quot;,
+         #legend_title = &quot;Computer &amp; Broadband&lt;br&gt;access under 18&quot;
+        # )</code></pre>
+<p><em>This data comes from ACS table B28005.</em></p>
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_under18_19.html" width="672" height="400">
+</iframe>
+</div>
+<div id="adults-ages-65" class="section level2">
+<h2>Adults ages 65+</h2>
+<p>The story of difference between adults age 65+ and the general population is mixed. Two out of three census tracts report lower values of access for adults age 65+ compared to the general population. The average difference is much smaller in magnitude than the comparison to children under 18. Access is 3.8 percentage points lower for adults age 65+ than in the total population.</p>
+<pre class="r"><code>#you only need this bit if you want to generate the map fresh
+#make_map(list(digitalaccess_by_age_muw, digitalaccess_by_age_tract, digitalaccess_by_age_nh),
+                   # var = &quot;65_plus&quot;,
+                    #hover_name = &quot;Computer &amp; Broadband internet access 65+&quot;,
+         #legend_title = &quot;Computer &amp; Broadband&lt;br&gt;access 65+&quot;
+         #)</code></pre>
+<iframe style="border: none;" title="description" src="https://www.greaterlouisvilleproject.org/maps/digitalaccess_plus65_19.html" width="672" height="400">
+</iframe>
+<p><em>This data comes from ACS table B28005.</em></p>
+</div>
+</div>
+<div id="about-the-data" class="section level1">
+<h1>About the Data</h1>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="18%" />
+<col width="28%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Figure</th>
+<th>Data Source(s)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How does Louisville Compare?</td>
+<td>Peer Ranking</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>Household level data that excludes group quarters. 1-year (2019) ACS estimates. Details households that have a high-speed internet subscription <em>and</em> access to a computer or tablet in the household (does not specify number of devices in household.)</td>
+</tr>
+<tr class="even">
+<td>How does Louisville Compare?</td>
+<td>Comparison to Peers Over Time</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>All the information detailed in “Peer Ranking” (above) applies. Additionally, it is important to note that, before 2016, the ACS questionnaire did not ask about tablets, only computers. Therefore, data before 2016 is only showing access to high-speed internet and a computer. Starting in 2016, ‘device’ is defined as having a computer or tablet. Pre-2016 the data did not ask about tablets, only computers. This is the reason for the ~4.5% bump in the data from 2015-16.</td>
+</tr>
+<tr class="odd">
+<td>How does Louisville Compare?</td>
+<td>Improvement from Peers</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>All the information detailed in “Comparison to Peers Over Time” (above) applies.</td>
+</tr>
+<tr class="even">
+<td>Types of Access</td>
+<td>Figure 1 (condensed figure)</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>Household level data that excludes group quarters. 1-year (2019) ACS estimates. 101 computer figures appear in this figure due to rounding.In the second section (yellow) that focuses on smartphone-related access, 14.7% is rounded to 15 computer figures.</td>
+</tr>
+<tr class="odd">
+<td>Types of Access</td>
+<td>Figure 2 (expanded figure)</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>Household level data that excludes group quarters. 1-year (2019) ACS estimates.101 computer figures appear in this figure due to rounding. In the second section (yellow) that focuses on smartphone-related access, 10.9% is rounded to 11 computer figures, which, in turn, causes 14.7% to be rounded to 15 computer figures.</td>
+</tr>
+<tr class="even">
+<td>High-Speed Internet and Device Access by Race</td>
+<td>Figure 1</td>
+<td>ACS Microdata IPUMS-USA</td>
+<td>Household level data that excludes group quarters. 1-year (2019) ACS estimates. Only data on white and Black households is presented because the other available racial demographics from the census (Hispanic and other) have a very large range and margin of error. Understanding digital access differences in these and other racial groups is critical to reducing the digital divide in Louisville, we simply do not have the data as of the publishing of this figure.</td>
+</tr>
+<tr class="odd">
+<td>High-Speed Internet Access by Income</td>
+<td>Figure 1</td>
+<td>ACS Table B28004</td>
+<td>Household level data that excludes group quarters. 1-year (2019) ACS estimates. Data by income for high-speed internet access only is included here because additional data on device access is not available.</td>
+</tr>
+<tr class="even">
+<td>High-Speed Internet and Computer Access by Geography</td>
+<td>Map 1</td>
+<td>ACS Table B28008</td>
+<td>Data describes population in households (individuals) with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019).</td>
+</tr>
+<tr class="odd">
+<td>High-Speed Internet and Computer Access by Age</td>
+<td>Children under 18</td>
+<td>ACS Table B28005</td>
+<td>Data describes children under 18 in households with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019).</td>
+</tr>
+<tr class="even">
+<td>High-Speed Internet and Computer Access by Age</td>
+<td>Adults ages 65+</td>
+<td>ACS Table B28005</td>
+<td>Data describes adults 65 or older in households with broadband (high-speed) internet access and a computer. 5-year ACS estimate (2015-2019).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
